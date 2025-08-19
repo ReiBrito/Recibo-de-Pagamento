@@ -70,7 +70,7 @@ Tela incial
 ![Tela](print.png)
 
 Geração do recibo
-![Tela](print1.png)
+![Tela](print2.png)
 
 📌 Melhorias Futuras
 
