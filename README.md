@@ -62,7 +62,7 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
 
 🌐 Demonstração
 
-👉 https://ReiBrito.github.io/Gerador-Comprovante/
+👉 https://ReiBrito.github.io/Recibo-de-Pagamento/
 
 🖼️ Imagem
 
