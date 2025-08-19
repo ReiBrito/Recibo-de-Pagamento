@@ -67,9 +67,11 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
 🖼️ Imagem
 
 * Tela incial
+  
 ![Tela](print.png)
 
 * Geração do recibo
+  
 ![Tela](print2.png)
 
 📌 Melhorias Futuras
