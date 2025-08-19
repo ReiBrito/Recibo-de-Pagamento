@@ -74,6 +74,10 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
   
 ![Tela](print2.png)
 
+* Recibo
+  
+![Tela](comprovante.png)
+
 📌 Melhorias Futuras
 
 📤 Exportar em PDF além de JPG
