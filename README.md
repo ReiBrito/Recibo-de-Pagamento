@@ -69,6 +69,7 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
 ![Tela](print.png)
 
 📌 Melhorias Futuras
+
 📤 Exportar em PDF além de JPG
 
 🖨️ Opção de imprimir direto
@@ -79,4 +80,5 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
 
 👨‍💻 Autor
 Desenvolvido por Reinaldo Brito 💙
+
 Sinta-se livre para contribuir ou adaptar ao seu uso!
