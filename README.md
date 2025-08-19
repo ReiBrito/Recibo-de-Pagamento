@@ -66,7 +66,7 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
 
 🖼️ Imagem
 
-![Tela](assets/print.png)
+![Tela](print.png)
 
 📌 Melhorias Futuras
 📤 Exportar em PDF além de JPG
