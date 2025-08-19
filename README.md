@@ -70,10 +70,6 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
   
 ![Tela](print.png)
 
-* Geração do recibo
-  
-![Tela](print2.png)
-
 * Recibo
   
 ![Tela](comprovante.png)
