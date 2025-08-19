@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprovante de Pagamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- html2canvas CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-top: 10px;
+      display: block;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-gerar {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-share {
+      background-color: #25D366;
+      color: white;
+    }
+
+    .btn-download {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #comprovante-visual {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .recibo-header {
+      text-align: center;
+      border-bottom: 2px dashed #ccc;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+    }
+
+    .recibo-header h3 {
+      margin: 0;
+    }
+
+    .recibo-content p {
+      margin: 6px 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Gerador de Comprovante</h2>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Nome do pagador">
+
+    <label for="valor">Valor:</label>
+    <input type="text" id="valor" placeholder="Ex: R$ 150,00">
+
+    <label for="data">Data:</label>
+    <input type="date" id="data">
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" rows="3" placeholder="Descrição do pagamento"></textarea>
+
+    <button class="btn-gerar" onclick="gerarComprovante()">Gerar Comprovante</button>
+    <button class="btn-download" onclick="baixarComprovante()">Baixar Comprovante (JPG)</button>
+    <button class="btn-share" onclick="compartilharWhatsApp()">Compartilhar via WhatsApp</button>
+  </div>
+
+  <!-- Comprovante visual -->
+  <div id="comprovante-visual">
+    <div class="recibo-header">
+      <h3>🧾 COMPROVANTE DE PAGAMENTO</h3>
+    </div>
+    <div class="recibo-content" id="conteudo-recibo">
+      <!-- Conteúdo gerado dinamicamente -->
+    </div>
+    <div style="text-align:center; margin-top: 10px;">
+      <small>Gerado em: <span id="gerado-em"></span></small>
+    </div>
+  </div>
+
+  <script>
+    function gerarComprovante() {
+      const nome = document.getElementById("nome").value;
+      const valor = document.getElementById("valor").value;
+      const data = document.getElementById("data").value;
+      const descricao = document.getElementById("descricao").value;
+
+      if (!nome || !valor || !data || !descricao) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      const conteudo = `
+        <p><strong>👤 Nome:</strong> ${nome}</p>
+        <p><strong>💰 Valor:</strong> ${valor}</p>
+        <p><strong>📅 Data:</strong> ${data}</p>
+        <p><strong>📝 Descrição:</strong> ${descricao}</p>
+      `;
+
+      document.getElementById("conteudo-recibo").innerHTML = conteudo;
+      document.getElementById("gerado-em").innerText = new Date().toLocaleString();
+      document.getElementById("comprovante-visual").style.display = "block";
+    }
+
+    function baixarComprovante() {
+      const comprovante = document.getElementById("comprovante-visual");
+
+      html2canvas(comprovante).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'comprovante.jpg';
+        link.href = canvas.toDataURL("image/jpeg", 1.0);
+        link.click();
+      });
+    }
+
+    function compartilharWhatsApp() {
+      const nome = document.getElementById("nome").value;
+      const valor = document.getElementById("valor").value;
+      const data = document.getElementById("data").value;
+      const descricao = document.getElementById("descricao").value;
+
+      if (!nome || !valor || !data || !descricao) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      const mensagem = `
+🧾 *Comprovante de Pagamento*
+
+👤 Nome: ${nome}
+💰 Valor: ${valor}
+📅 Data: ${data}
+📝 Descrição: ${descricao}
+      
+(Enviado via sistema gerador)
+      `;
+
+      const link = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
+      window.open(link, '_blank');
+    }
+  </script>
+</body>
+</html>
