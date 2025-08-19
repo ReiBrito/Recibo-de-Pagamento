@@ -79,6 +79,6 @@ Preencha os campos (nome, valor, data, descrição) e clique em Gerar Comprovant
 ☁️ Salvar histórico de comprovantes no navegador
 
 👨‍💻 Autor
-Desenvolvido por Reinaldo Brito 💙
+Desenvolvido por Reinaldo Brito 
 
-Sinta-se livre para contribuir ou adaptar ao seu uso!
+💙 Sinta-se livre para contribuir ou adaptar ao seu uso!
